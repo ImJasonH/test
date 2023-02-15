@@ -10,6 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
-    - uses: actions/setup-go
-    - uses: actions/checkout
+    - uses: actions/setup-go@v3
+    - uses: actions/checkout@v3
     - run: while true; do go run . || break; sleep 10; done
