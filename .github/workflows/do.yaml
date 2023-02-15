@@ -1,0 +1,13 @@
+name: do
+
+on:
+  workflow_dispatch:
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+    - run: |
+      while true; do curl --trace dump https://cgr.dev/v2/ | grep "authentication required" || break; sleep 10; done
+      cat dump
