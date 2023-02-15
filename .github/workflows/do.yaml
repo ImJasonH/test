@@ -2,6 +2,8 @@ name: do
 
 on:
   workflow_dispatch:
+  push:
+    branches: ['main']
 
 jobs:
   crawl:
@@ -9,5 +11,5 @@ jobs:
     timeout-minutes: 5
     steps:
     - run: |
-        while true; do curl --trace dump https://cgr.dev/v2/ | grep "authentication required" || break; sleep 10; done
+        while true; do curl --trace-ascii dump --trace-time https://cgr.dev/v2/ | grep "authentication required" || break; cat dump; sleep 10; done
         cat dump
