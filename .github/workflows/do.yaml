@@ -11,5 +11,5 @@ jobs:
     timeout-minutes: 5
     steps:
     - run: |
-        while true; do curl --silent --show-error --fail --trace-ascii dump --trace-time https://issuer.enforce.dev/.well-known/openid-configuration || break; cat dump; sleep 10; done
+        while true; do curl --silent --show-error --fail --trace-ascii dump --trace-time https://global.gcping.com/api/ping || break; cat dump; sleep 10; done
         cat dump
