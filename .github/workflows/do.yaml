@@ -12,4 +12,6 @@ jobs:
     steps:
     - uses: actions/setup-go@v3
     - uses: actions/checkout@v3
-    - run: while true; do go run . || break; sleep 10; done
+    - run: |
+        GODEBUG=httpdebug=1
+        while true; do go run . || break; sleep 10; done
